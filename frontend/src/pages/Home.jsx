@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import RecentPost from "../components/RecentPost";
 import BlogPage from "../components/BlogPage";
-import Newsletter from "../components/NewsLetter";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = ({darkMode, setDarkMode}) => {
   // const [darkMode, setDarkMode] = useState(false);
@@ -19,7 +19,7 @@ const Home = ({darkMode, setDarkMode}) => {
         <RecentPost />
       </div>
       <BlogPage />
-      <Newsletter darkMode={darkMode} />
+      <NewsLetter darkMode={darkMode} />
       <Footer darkMode={darkMode} />
       <Copyright />
     </div>

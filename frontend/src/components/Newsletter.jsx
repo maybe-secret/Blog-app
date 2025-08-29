@@ -1,7 +1,7 @@
 import React from "react";
 import { assets } from "../assets/data";
 
-const Newsletter = ({darkMode}) => {
+const NewsLetter = ({darkMode}) => {
   return (
     <div className="w-full flex justify-center px-4  ">
       <div className="relative bg-light-secondary dark:bg-dark-secondary shadow-[0_0_15px_3px_rgba(0,0,0,0.25)] dark:shadow-shadow-dark rounded-md max-w-[1000px] w-full p-6 sm:p-8 md:p-10 text-center overflow-hidden lg:py-15 transition-all duration-300">
@@ -41,4 +41,4 @@ const Newsletter = ({darkMode}) => {
   );
 };
 
-export default Newsletter;
+export default NewsLetter;
