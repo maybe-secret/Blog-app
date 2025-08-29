@@ -176,7 +176,7 @@ export default function Navbar({darkMode, setDarkMode}) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#f6f3ea] dark:bg-[#15202B] px-4 pb-3 space-y-2">
+        <div className="md:hidden bg-light-primary dark:bg-dark-primary px-4 pb-3 space-y-2">
           <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             Home
           </a>
