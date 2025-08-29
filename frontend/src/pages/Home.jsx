@@ -5,7 +5,7 @@ import RecentPost from "../components/RecentPost";
 import BlogPage from "../components/BlogPage";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
-import NewsLetter from "../components/temp";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = ({darkMode, setDarkMode}) => {
   // const [darkMode, setDarkMode] = useState(false);
