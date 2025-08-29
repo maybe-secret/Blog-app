@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import { assets } from "../assets/data";
 import RecentPost from "../components/RecentPost";
 import BlogPage from "../components/BlogPage";
-import useLocalStorage from "../components/useLocalStorage";
 import Newsletter from "../components/NewsLetter";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
