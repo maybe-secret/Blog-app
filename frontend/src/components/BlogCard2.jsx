@@ -1,13 +1,13 @@
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
 
-const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor, padding, shadow }) => {
+const BlogCard2 = ({ image, date, readTime, title, excerpt, author, tags }) => {
   return (
     <div className={`w-full overflow-hidden
-      flex flex-col md:flex-row lg:flex-col md:gap-4 cursor-pointer ${bgColor} ${shadow}`}>
+      flex flex-col lg:flex-col cursor-pointer bg-card-light dark:bg-card-dark shadow-md dark:shadow-shadow-dark divide-shadow-dark`}>
       
       {/* --- Image --- */}
-      <div className="w-full md:w-1/3 lg:w-full">
+      <div className="w-full lg:w-full">
         <img
           src={image}
           alt={title}
@@ -16,7 +16,7 @@ const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor
       </div>
 
       {/* --- Content --- */}
-      <div className={`py-2 flex flex-col gap-3 w-full md:w-2/3 lg:w-full md:gap-4 ${padding}`}>
+      <div className={`py-3 flex flex-col gap-3 w-full lg:w-full px-4`}>
         {/* Meta Info */}
         <div className="flex flex-wrap items-center text-gray-500 text-sm gap-3">
           <span className="flex items-center gap-1">
@@ -48,7 +48,7 @@ const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor
             {tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="text-xs text-[#43AECD] hover:underline cursor-pointer truncate max-w-[100px]"
+                className="text-xs text-[#43AECD] hover:underline cursor-pointer truncate max-w-[100px] lg:max-w-[80px]"
               >
                 #{tag}
               </span>
@@ -60,4 +60,4 @@ const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor
   );
 };
 
-export default BlogCard;
+export default BlogCard2;

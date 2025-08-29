@@ -12,6 +12,13 @@ import map from './worldmap.png'
 import map2 from './worldmap.svg'
 import chai from './chai.png'
 import book from './book.svg'
+import bridgeDark from './bridgeDark.png'
+import logoDark from './logoDark.svg'
+import bigImage from './bigImage.png'
+import planeLeftLight from './planeLeftLight.svg'
+import planeRightLight from './planeRightLight.svg'
+import planeLeftDark from './planeLeftDark.svg'
+import planeRightDark from './planeRightDark.svg'
 
 export const assets = {
   logo,
@@ -28,4 +35,11 @@ export const assets = {
   map2,
   chai,
   book,
+  bridgeDark,
+  logoDark,
+  bigImage,
+  planeLeftLight,
+  planeRightLight,
+  planeLeftDark,
+  planeRightDark
 }

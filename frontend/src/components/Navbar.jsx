@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
 import { assets } from "../assets/data";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({darkMode, setDarkMode}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+
+  //dark mode
+  
 
   // detect scroll
   useEffect(() => {
@@ -25,16 +29,16 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`w-full sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`w-full sticky top-0 z-20 m-0 transition-all duration-300 dark:shadow-shadow-dark ${
         isScrolled ? "shadow-md" : ""
-      } bg-[#f6f3ea]`}
+      } bg-light-primary dark:bg-dark-primary `}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* SVG Logo */}
           <div className="flex-shrink-0 flex items-center">
             <img
-              src={assets.logo2}
+              src={ darkMode ? assets.logoDark : assets.logo2}
               alt="Logo"
               className="h-10 w-auto cursor-pointer"
             />
@@ -45,16 +49,16 @@ export default function Navbar() {
             <a href="#" className="font-semibold text-[#8a6f2f]">
               Home
             </a>
-            <a href="#" className="text-black hover:text-[#8a6f2f]">
+            <a href="#" className="text-black dark:text-white hover:text-[#8a6f2f]">
               About
             </a>
-            <a href="#" className="text-black hover:text-[#8a6f2f]">
+            <a href="#" className="text-black dark:text-white hover:text-[#8a6f2f]">
               Travel
             </a>
-            <a href="#" className="text-black hover:text-[#8a6f2f]">
+            <a href="#" className="text-black dark:text-white hover:text-[#8a6f2f]">
               Blogs
             </a>
-            <a href="#" className="text-black hover:text-[#8a6f2f]">
+            <a href="#" className="text-black dark:text-white hover:text-[#8a6f2f]">
               Contact
             </a>
           </div>
@@ -63,12 +67,12 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             {/* Search */}
             {searchOpen ? (
-              <div className="flex items-center bg-[#f6f3ea] border rounded-lg px-2 py-1 w-40 sm:w-56">
-                <FiSearch className="text-gray-500 mr-2 cursor-pointer hover:text-[#8a6f2f] hover:scale-105" onClick={() => {console.log(`Searching for: ${searchValue}`); setSearchValue('')}} />
+              <div className="flex items-center bg-light-primary dark:bg-dark-primary dark:border-gray-400 border rounded-lg px-2 py-1 w-40 sm:w-56">
+                <FiSearch className="text-gray-500 dark:text-white mr-2 cursor-pointer hover:text-[#8a6f2f] hover:scale-105" onClick={() => {console.log(`Searching for: ${searchValue}`); setSearchValue('')}} />
                 <input
                   type="text"
                   placeholder="search..."
-                  className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-full text-sm"
+                  className="bg-transparent outline-none text-gray-700 dark:text-text-dark-primary placeholder-gray-400 w-full text-sm"
                   value={searchValue}
                   onChange={e => setSearchValue(e.target.value)}
                   autoFocus
@@ -83,7 +87,7 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={() => setSearchOpen(true)}
-                className="text-black hover:text-[#8a6f2f]"
+                className="text-black dark:text-white hover:text-[#8a6f2f]"
               >
                 <FiSearch size={20} />
               </button>
@@ -93,26 +97,34 @@ export default function Navbar() {
             {!searchOpen && (
               <>
                 {/* Dark mode toggle */}
-                <button onClick={() => setDarkMode(!darkMode)} className="p-1">
-                  {darkMode ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 fill-yellow-500"
-                      viewBox="0 0 24 24"
-                    >
+                <button
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="p-1 w-8 h-8 flex items-center justify-center relative"
+                >
+                  <div
+                    className={`absolute transition-transform duration-500 ease-in-out ${
+                      darkMode ? "scale-100 rotate-0 opacity-100" : "scale-0 rotate-90 opacity-0"
+                    }`}
+                  >
+                    {/* Sun */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24">
                       <path d="M12 18a6 6 0 100-12 6 6 0 000 12z" />
                       <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414m0-13.414l1.414 1.414M17.95 17.95l1.414 1.414" />
                     </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 fill-black"
-                      viewBox="0 0 24 24"
-                    >
+                  </div>
+
+                  <div
+                    className={`absolute transition-transform duration-500 ease-in-out ${
+                      !darkMode ? "scale-100 rotate-0 opacity-100" : "scale-0 -rotate-90 opacity-0"
+                    }`}
+                  >
+                    {/* Moon */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 fill-black dark:fill-white" viewBox="0 0 24 24">
                       <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
                     </svg>
-                  )}
+                  </div>
                 </button>
+
 
                 {/* Login button (desktop only) */}
                 <button className="hidden md:block bg-gradient-to-r from-[#8a6f2f] to-[#4b3a1f] text-white px-4 py-1 rounded-lg">
@@ -128,7 +140,7 @@ export default function Navbar() {
                     {menuOpen ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-7 h-7"
+                        className="w-7 h-7 dark:text-white"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -142,7 +154,7 @@ export default function Navbar() {
                     ) : (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-7 h-7"
+                        className="w-7 h-7 dark:text-white"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -164,20 +176,20 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#f6f3ea] px-4 pb-3 space-y-2">
-          <a href="#" className="block text-black hover:text-[#8a6f2f]">
+        <div className="md:hidden bg-[#f6f3ea] dark:bg-[#15202B] px-4 pb-3 space-y-2">
+          <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             Home
           </a>
-          <a href="#" className="block text-black hover:text-[#8a6f2f]">
+          <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             About
           </a>
-          <a href="#" className="block text-black hover:text-[#8a6f2f]">
+          <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             Travel
           </a>
-          <a href="#" className="block text-black hover:text-[#8a6f2f]">
+          <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             Blogs
           </a>
-          <a href="#" className="block text-black hover:text-[#8a6f2f]">
+          <a href="#" className="block text-black dark:text-white hover:text-[#8a6f2f]">
             Contact
           </a>
           <button className="w-full bg-gradient-to-r from-[#8a6f2f] to-[#4b3a1f] text-white px-4 py-1 rounded-lg">
