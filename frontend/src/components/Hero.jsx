@@ -20,7 +20,7 @@ const Hero = ({darkMode}) => {
         style={{ backgroundImage: `url(${assets.map2})` }}
       >
         <h1 className="text-xl text-text-light-primary md:text-2xl dark:text-text-dark-primary lg:text-3xl font-semibold leading-snug">
-          I’m Abhygan Sarkar - Welcome to My World. Exploring Places, Tasting
+          I’m Abhigayan Rith - Welcome to My World. Exploring Places, Tasting
           Cultures, Sharing Stories.
         </h1>
 
