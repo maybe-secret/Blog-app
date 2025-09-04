@@ -25,18 +25,24 @@ body, html {
   
 
   /* --- text color --- */
-  --color-text-light-primary: #000;
-  --color-text-light-secondary: #676767;
-  --color-text-dark-primary: #ffffff;
-  --color-text-dark-secondary: #BEBEBE;
-  --color-text-light: #3F495A;
-  --color-text-dark: #E0E4EA;
+  --color-text-light-primary: #1A2E3F;
+  --color-text-light-secondary: #5A6474;
+  --color-text-dark-primary: #E0E4EA;
+  --color-text-dark-secondary: #A0A8B3;
+  --color-text-dark: #C0C8D4;
+  --color-text-light: #2A3A4D;
 
 
   /* --- buttonn color ---  */
-  --color-btn-light-primary: #43AECD;
+  --color-btn-light-primary: #36b0e0;
+  --color-btn-light-secondary: #2a91b9;
   --color-btn-dark-primary: #3495B1;
   --color-btn-dark-secondary: #12779f;
+
+
+  /* --- border --- */
+  --color-border-light: #e9e1cf;
+  --color-border-dark: #1A2E3F;
 
 
   --color-shadow-dark: #3C2E1D;

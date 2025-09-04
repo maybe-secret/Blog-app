@@ -1,6 +1,7 @@
 import React from 'react'
 import BlogCard from './BlogCard'
-import { assets } from '../assets/data'
+import { assets, postsData } from '../assets/data'
+import Button from './Button'
 
 const RecentPost = () => {
   return (
@@ -12,41 +13,28 @@ const RecentPost = () => {
 
       {/* Responsive grid instead of raw flex */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <BlogCard
-          image={assets.chai}
-          date="January 1, 2025"
-          readTime="5 mins Read"
-          title="Chai, Clay Cups, and Conversations: A Morning in Kolkata."
-          excerpt="In the quiet hum of a bustling street, I found warmth not just in tea — but in the stories shared between sips, steam, and strangers."
-          author="Abhi Chatterjee"
-          tags={["KolkataDiaries", "IndianStreetCulture"]}
-        />
-
-        <BlogCard
-          image={assets.chai}
-          date="January 1, 2025"
-          readTime="5 mins Read"
-          title="Chai, Clay Cups, and Conversations: A Morning in Kolkata."
-          excerpt="In the quiet hum of a bustling street, I found warmth not just in tea — but in the stories shared between sips, steam, and strangers."
-          author="Abhi Chatterjee"
-          tags={["KolkataDiaries", "IndianStreetCulture"]}
-        />
-
-        <BlogCard
-          image={assets.chai}
-          date="January 1, 2025"
-          readTime="5 mins Read"
-          title="Chai, Clay Cups, and Conversations: A Morning in Kolkata."
-          excerpt="In the quiet hum of a bustling street, I found warmth not just in tea — but in the stories shared between sips, steam, and strangers."
-          author="Abhi Chatterjee"
-          tags={["KolkataDiaries", "IndianStreetCulture"]}
-        />
+        {
+          postsData
+            .sort((a, b) => new Date(b.date) - new Date(a.date))  // Sort by date in descending order
+            .slice(0, 3)  // Get the top 3 most recent posts
+            .map((post, index) => (
+              <BlogCard
+                key={index}  // Ideally use a unique identifier like post.id, if available
+                image={post.image}
+                date={post.date}
+                readTime={post.readTime}
+                title={post.title}
+                excerpt={post.excerpt}
+                author={post.author}
+                tags={post.tags}
+                authorImg={post.authorImg}
+              />
+            ))
+        }
       </div>
 
       <div className='w-full flex justify-center items-center mt-5 sm:mt-8 md:m-0'>
-        <button className="w-full md:w-[160px] text-white bg-[#36b0e0] dark:bg-btn-dark-primary py-2 lg:mt-5 hover:bg-btn-dark-secondary transition">
-          View All
-      </button>
+        <Button value={"View All"} />
       </div>
 
     </div>

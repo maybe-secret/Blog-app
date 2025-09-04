@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/data";
+import Button from "./Button";
 
 const Hero = ({darkMode}) => {
   return (
@@ -20,7 +21,7 @@ const Hero = ({darkMode}) => {
         style={{ backgroundImage: `url(${assets.map2})` }}
       >
         <h1 className="text-xl text-text-light-primary md:text-2xl dark:text-text-dark-primary lg:text-3xl font-semibold leading-snug">
-          I’m Abhigayan Rith - Welcome to My World. Exploring Places, Tasting
+          I’m Soumyajit Chakraborty - Welcome to My World. Exploring Places, Tasting
           Cultures, Sharing Stories.
         </h1>
 
@@ -30,9 +31,7 @@ const Hero = ({darkMode}) => {
           connecting with people who make every place feel like a part of home.
         </p>
 
-        <button className="w-full md:w-[160px] text-white bg-[#36b0e0] py-2 lg:mt-5 hover:bg-[#2a91b9] transition">
-          Subscribe
-        </button>
+        <Button value={"Subscribe"} />
       </div>
     </div>
   );

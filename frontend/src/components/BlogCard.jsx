@@ -1,10 +1,10 @@
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
 
-const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor, padding, shadow }) => {
+const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, authorImg}) => {
   return (
     <div className={`w-full overflow-hidden
-      flex flex-col md:flex-row lg:flex-col md:gap-4 cursor-pointer ${bgColor} ${shadow}`}>
+      flex flex-col md:flex-row lg:flex-col md:gap-4 cursor-pointer`}>
       
       {/* --- Image --- */}
       <div className="w-full md:w-1/3 lg:w-full">
@@ -16,7 +16,7 @@ const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor
       </div>
 
       {/* --- Content --- */}
-      <div className={`py-2 flex flex-col gap-3 w-full md:w-2/3 lg:w-full md:gap-4 ${padding}`}>
+      <div className={`py-2 flex flex-col gap-3 w-full md:w-2/3 lg:w-full md:gap-4`}>
         {/* Meta Info */}
         <div className="flex flex-wrap items-center text-gray-500 text-sm gap-3">
           <span className="flex items-center gap-1">
@@ -39,7 +39,11 @@ const BlogCard = ({ image, date, readTime, title, excerpt, author, tags, bgColor
         <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
           {/* Author DP + Name */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-blue-300"></div>
+            <img
+              src={authorImg}
+              alt={author}
+              className="w-8 h-8 rounded-full object-cover border border-border-light dark:border-border-dark"
+            />
             <span className="text-sm font-medium text-text-light dark:text-text-dark">{author}</span>
           </div>
 

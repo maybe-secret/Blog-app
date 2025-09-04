@@ -31,7 +31,7 @@ const NewsLetter = ({darkMode}) => {
           />
           <button
             type="submit"
-            className="w-full sm:w-auto bg-btn-light-primary dark:bg-btn-dark-primary dark:hover:to-btn-dark-secondary text-white px-5 py-2 rounded-md hover:bg-[#2f8ba8] transition-colors text-sm sm:text-base"
+            className="w-full sm:w-auto bg-btn-light-primary hover:bg-btn-light-secondary dark:bg-btn-dark-primary dark:hover:bg-btn-dark-secondary text-white px-5 py-2 rounded-md transition-colors text-sm sm:text-base"
           >
             Subscribe
           </button>

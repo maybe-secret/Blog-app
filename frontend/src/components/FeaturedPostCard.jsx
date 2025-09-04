@@ -58,7 +58,7 @@ const FeaturedPostCard = ({
               <img
                 src={authorImg}
                 alt={author}
-                className="w-8 h-8 rounded-full border border-gray-300"
+                className="w-8 h-8 rounded-full border border-border-light dark:border-border-dark object-cover"
               />
             ) : (
               <div className="w-8 h-8 rounded-full bg-blue-300 border border-gray-300"></div>

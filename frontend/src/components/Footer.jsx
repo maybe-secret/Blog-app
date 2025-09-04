@@ -64,7 +64,7 @@ export default function Footer( {darkMode}) {
             />
             <button
               type="submit"
-              className="bg-btn-light-primary dark:bg-btn-dark-primary hover:bg-btn-dark-secondary text-white px-4 py-2 font-medium"
+              className="bg-btn-light-primary hover:bg-btn-light-secondary dark:bg-btn-dark-primary dark:hover:bg-btn-dark-secondary text-white px-4 py-2 font-medium"
             >
               Subscribe
             </button>
